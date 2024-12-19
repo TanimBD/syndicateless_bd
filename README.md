@@ -4,6 +4,7 @@
 ![screenshot](assets/app.png)
 
 "সিন্ডিকেটমুক্ত বাংলাদেশ" App
+
 Description: "সিন্ডিকেটমুক্ত বাংলাদেশ" is an innovative Flutter-based mobile application designed to create a marketplace that connects buyers and sellers while promoting transparency and fair trade. The app features a streamlined user experience with easy navigation and essential functionalities that facilitate buying and selling products based on regional preferences.
 
 Key Features:
