@@ -1,5 +1,7 @@
 # synlessbd
 
+![screenshot](assets/app.png)
+
 A new Flutter project.
 
 ## Getting Started
