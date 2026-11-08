@@ -1,0 +1,84 @@
+rules_version = '2';
+// Security rules for Syndicate-Free Bangladesh.
+// Every app install signs in with Firebase anonymous auth (device session);
+// admins are listed in /admins/{deviceUid} (add from the Firebase console).
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() { return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid)); }
+    function isOwner(d) { return signedIn() && d.ownerUid == request.auth.uid; }
+
+    match /admins/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow write: if false;
+    }
+
+    // Password hashes: fetch one document by phone only, never list.
+    match /credentials/{phone} {
+      allow get: if signedIn();
+      allow list: if false;
+      allow create: if signedIn() && request.resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.keys().hasOnly(['salt', 'hash', 'ownerUid', 'createdAt']);
+      allow update, delete: if false;
+    }
+
+    match /users/{phone} {
+      allow get: if signedIn();
+      allow list: if isAdmin();
+      allow create: if signedIn() && request.resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.role in ['citizen', 'seller']
+                    && request.resource.data.phone == phone;
+      // Only name/district can change; role and NID are locked.
+      allow update: if signedIn()
+                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name', 'district']);
+      allow delete: if isAdmin();
+    }
+
+    match /reports/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn()
+                    && request.resource.data.ownerUid == request.auth.uid
+                    && (request.resource.data.status == 'submitted' || isAdmin())
+                    && request.resource.data.description is string
+                    && request.resource.data.description.size() <= 1200;
+      // Citizens can only bump supportCount by one; admins change status.
+      allow update: if isAdmin()
+                    || (signedIn()
+                        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['supportCount'])
+                        && request.resource.data.supportCount == resource.data.supportCount + 1);
+      allow delete: if isAdmin();
+
+      match /supporters/{uid} {
+        allow read: if signedIn();
+        allow create: if signedIn() && request.auth.uid == uid;
+        allow update, delete: if false;
+      }
+    }
+
+    match /commodities/{id} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    match /config/{id} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    match /prices/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.price is number
+                    && request.resource.data.price > 0 && request.resource.data.price < 100000;
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+
+    match /listings/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.ownerUid == request.auth.uid;
+      allow update: if isOwner(resource.data) || isAdmin();
+      allow delete: if isOwner(resource.data) || isAdmin();
+    }
+  }
+}
