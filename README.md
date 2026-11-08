@@ -1,252 +1,201 @@
+<div align="center">
+
 # 🇧🇩 Syndicate-Free Bangladesh
 
-### A Bilingual Civic-Tech Platform for Market Transparency, Citizen Empowerment & Digital Accountability
+### A civic-tech platform for fair markets, citizen reporting, and public accountability
 
-Syndicate-Free Bangladesh is a Bangla/English Flutter application
-concept designed to help citizens, farmers, producers, and relevant
-authorities identify, report, and address syndicate-related problems
-across 13 important sectors in Bangladesh.
+A bilingual (Bangla / English) Flutter application designed to help citizens, farmers, producers, and authorities identify, report, and address syndicate-related problems across **13 sectors in Bangladesh**.
 
-The platform brings citizen reporting, case tracking, market-price
-monitoring, transport fare checking, medicine MRP checking, and a direct
-farmer-to-buyer marketplace into one mobile application. App data is
-stored in **Cloud Firestore**.
+<br>
 
-> **Project status:** Developed as an independent software
-> project/prototype. It is not an official government service,
-> regulator, or authority platform. Information, reports, and reference
-> prices should be independently verified before real-world decisions
-> are made.
+<img src="screenshots/home-dashboard.jpg" alt="Syndicate-Free Bangladesh home dashboard" width="240">
 
-------------------------------------------------------------------------
+<br>
+
+**Flutter · Dart · Firebase Authentication · Cloud Firestore · Bangla / English**
+
+</div>
+
+---
 
 ## 📱 Screenshots
 
-  ----------------------------------------------------------------------------------------
-  Home Dashboard                               Citizen Reports
-  -------------------------------------------- -------------------------------------------
-  ![Home                                       ![Citizen
-  dashboard](screenshots/home-dashboard.jpg)   reports](screenshots/citizen-reports.jpg)
+### Home & Citizen Experience
 
-  ----------------------------------------------------------------------------------------
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/home-dashboard.jpg" width="210" alt="Home dashboard"><br>
+      <b>Home Dashboard</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/citizen-reports.jpg" width="210" alt="Citizen reports"><br>
+      <b>Citizen Reports</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/report-form.jpg" width="210" alt="Report submission form"><br>
+      <b>Report Submission</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="screenshots/complaint-tracking.jpg" width="210" alt="Complaint tracking"><br>
+      <b>Complaint Tracking</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/login.jpg" width="210" alt="Login screen"><br>
+      <b>Login</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/registration.jpg" width="210" alt="Registration screen"><br>
+      <b>Registration</b>
+    </td>
+  </tr>
+</table>
 
-  -----------------------------------------------------------------------------------
-  Direct Market                            Fair-Price Board
-  ---------------------------------------- ------------------------------------------
-  ![Direct                                 ![Fair-price
-  market](screenshots/direct-market.jpg)   board](screenshots/fair-price-board.jpg)
+### Market Transparency
 
-  -----------------------------------------------------------------------------------
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/fair-price-board.jpg" width="220" alt="Fair-price board"><br>
+      <b>Fair-Price Board</b>
+    </td>
+    <td align="center">
+      <img src="screenshots/direct-market.jpg" width="220" alt="Direct market"><br>
+      <b>Direct Market</b>
+    </td>
+  </tr>
+</table>
 
-  ------------------------------------------------------------------------------------
-  Report Submission                    Complaint Tracking
-  ------------------------------------ -----------------------------------------------
-  ![Report                             ![Complaint
-  form](screenshots/report-form.jpg)   tracking](screenshots/complaint-tracking.jpg)
+> **Demo data note:** The supplied Fair-Price Board screenshot currently shows the empty state because reference prices have not yet been added. The Direct Market screenshot shows the empty state for the selected district because no products are listed there yet.
 
-  ------------------------------------------------------------------------------------
-
-  -----------------------------------------------------------------------------------
-  Login                               Registration
-  ----------------------------------- -----------------------------------------------
-  ![Login](screenshots/login.jpg)     ![Registration](screenshots/registration.jpg)
-
-  -----------------------------------------------------------------------------------
-
-------------------------------------------------------------------------
+---
 
 ## 🎯 Problem & Purpose
 
-People may face unfair pricing, excessive transport fares, market
-manipulation, extortion, and barriers to accessing essential services.
-These problems can be difficult to document and escalate consistently.
+Citizens may encounter unfair pricing, excessive transport fares, market manipulation, extortion, and barriers to essential services. These issues can be difficult to document, track, and bring to the attention of the appropriate authority.
 
-This project explores how a digital platform can:
+Syndicate-Free Bangladesh explores how a single digital platform can support:
 
--   Make it easier for citizens to submit structured reports.
--   Provide a traceable workflow for submitted cases.
--   Help people compare reported market prices with configurable
-    reference prices.
--   Give farmers and producers a direct channel to reach buyers.
--   Make sector-specific guidance, rights information, and hotline
-    numbers easier to access.
+- Structured citizen reporting and case tracking.
+- Market-price observation and reference-price comparison.
+- Better visibility into farm-gate versus retail price differences.
+- Direct connections between farmers, producers, and buyers.
+- Easier access to sector-specific guidance, rights information, and hotline numbers.
 
-The app is intended to support awareness, reporting, and transparency.
-It does not independently establish that a reported allegation is true.
+The app is an independent project/prototype. It is **not an official government service or authority platform**, and user-submitted allegations should not be treated as verified facts without proper review.
 
-------------------------------------------------------------------------
+---
 
-## 🧭 13 Sectors Covered
+## ✨ Features
 
-The app organizes information and reporting around 13 sectors:
+### Citizen Reporting
+- Submit a report by sector, issue type, district, and location.
+- Add an incident description and optional amount of money involved.
+- Attach optional photo evidence.
+- Choose to keep the reporter's identity private.
+- Receive a unique tracking code, for example: `SBD-26-4F7K2Q`.
 
-1.  Transport and buses
-2.  Food and essential commodities
-3.  Government hospitals
-4.  Medicine and pharmacies
-5.  Agriculture
-6.  Tickets --- rail, launch, and air
-7.  Government service offices
-8.  Land and registry
-9.  Education
+### Case Tracking & Workflow
+- Track a submitted report through its status.
+- Documented workflow: `Submitted → Under review → Verified → Forwarded to authority → Action taken`.
+- Rejected cases can also be represented.
+- Display status history and authority notes where available.
+
+### Credibility Scoring
+- Uses signals such as citizen corroboration, photo evidence, and official verification to help prioritize reports.
+- The score is intended as a review-prioritization aid, not proof that an allegation is true.
+
+### Fair-Price Board
+- Collect citizen-reported market prices by district.
+- Compare a seven-day median with an administrator-configured reference price.
+- Flag prices that appear above the reference level or are increasing sharply.
+
+### Middleman Meter
+- Shows the difference between farm-gate and retail prices for selected products.
+- Helps users understand price gaps across the supply chain.
+
+### Direct Market
+- Allows farmers and producers to list products for buyers.
+- Supports product search, district selection, and category filters.
+- Helps buyers contact producers directly.
+- Displays a fair-price indicator when a listing meets the configured reference price.
+
+### BRTA Fare Calculator
+- Calculates configured fares for city buses, minibuses, and long routes.
+- Uses administrator-editable fare rates.
+- Helps users identify possible overcharging and prepare a report.
+
+### Medicine MRP Checker
+- Helps compare the price paid for a medicine with its printed Maximum Retail Price (MRP).
+- Provides a way to report a price discrepancy.
+
+### Authority Dashboard
+- Key performance indicators and report summaries.
+- Reports grouped by sector and status.
+- District and location hotspot views.
+- Case queue with credibility-based prioritization.
+- Reference-price and fare configuration.
+- Demo-data loading for presentations.
+
+### Rights Information & Hotlines
+Includes commonly used service numbers and rights information, such as:
+
+| Hotline | Service |
+|---|---|
+| 999 | Emergency service |
+| 333 | Government information and services |
+| 106 | Anti-Corruption Commission |
+| 16121 | Consumer rights |
+| 16263 | Health service |
+| 16122 | Land service |
+| 16123 | Agriculture |
+| 109 | Women and children support |
+
+Users should confirm hotline availability and the appropriate service before relying on a number.
+
+### 13 Sectors Covered
+
+1. Transport and buses
+2. Food and essential commodities
+3. Government hospitals
+4. Medicine and pharmacies
+5. Agriculture
+6. Rail, launch, and air tickets
+7. Government service offices
+8. Land and registry
+9. Education
 10. Overseas employment
 11. Electricity, gas, and LPG
 12. Construction materials
 13. Markets, ghats, and footpath extortion
 
-Each sector is designed to explain common issues, suggest what citizens
-can do, identify relevant responsible authorities, and provide useful
-hotline information.
+---
 
-------------------------------------------------------------------------
+## 🧰 Tech Stack
 
-## ✨ Key Features
+- **Framework:** Flutter
+- **Language:** Dart
+- **Authentication:** Firebase Authentication
+- **Cloud database:** Cloud Firestore
+- **Database access control:** Firestore Security Rules
+- **Platform:** Android
+- **Localization:** Bangla / English
 
-### 1. Citizen Syndicate Reporting
+---
 
-Citizens can submit a report with details such as:
-
--   Sector and issue type
--   District and specific location
--   Description of the incident
--   Optional amount of money involved
--   Optional photo evidence
--   Option to keep the reporter's identity private
-
-Each report receives a tracking code, for example:
-
-`SBD-26-4F7K2Q`
-
-### 2. Case Tracking & Workflow
-
-The documented case workflow includes:
-
-`Submitted → Under review → Verified → Forwarded to authority → Action taken`
-
-A report may also be rejected. The app is designed to show status
-updates, authority notes, and a case timeline where available.
-
-### 3. Credibility Scoring
-
-The project includes a credibility model intended to prioritize reports
-using signals such as:
-
--   Citizen corroboration
--   Photo evidence
--   Official verification
-
-A credibility score is an aid for prioritization, not proof that an
-allegation is true.
-
-### 4. Fair-Price Board
-
-Citizens can submit local market-price observations by district. The app
-is designed to compare a seven-day median with an
-administrator-configured reference price and flag prices that appear
-unusually high or are increasing sharply.
-
-**Current demo screenshot note:** The supplied Fair-Price Board
-screenshot shows the empty state because no reference prices have been
-added yet.
-
-### 5. Middleman Meter
-
-Shows the difference between farm-gate and retail prices for selected
-products to help users understand the price gap along the supply chain.
-
-### 6. Direct Market
-
-A marketplace area where farmers and producers can list products so
-buyers can contact sellers directly.
-
--   Product search
--   District selection
--   Product-category filters
--   Seller listings
--   Direct buyer-to-seller contact
--   Fair-price indicator when a listing meets the configured reference
-    price
-
-**Current demo screenshot note:** The supplied Direct Market screenshot
-shows the empty state because no products are listed in the selected
-area.
-
-### 7. BRTA Fare Calculator
-
-Calculates configured lawful fares for city buses, minibuses, and long
-routes. Fare rates are administrator-editable, and the feature is
-intended to help users identify possible overcharging and prepare a
-report.
-
-### 8. Medicine MRP Checker
-
-Helps users compare the amount paid for a medicine with its printed
-Maximum Retail Price (MRP), and provides a route to report a
-discrepancy.
-
-### 9. Authority Dashboard
-
-The administrator/authority dashboard is designed to provide:
-
--   Key performance indicators
--   Reports by sector and status
--   District and location hotspots
--   Case queue prioritized by credibility
--   Reference-price and fare configuration
--   Demo-data loading for presentations
-
-Dashboard access is restricted to authorized administrator
-devices/accounts according to the app's Firebase configuration.
-
-### 10. Rights Information & Hotlines
-
-The app includes rights guidance and commonly used hotline references,
-including:
-
--   999 --- Emergency service
--   333 --- Government information and services
--   106 --- Anti-Corruption Commission
--   16121 --- Consumer rights
--   16263 --- Health service
--   16122 --- Land service
--   16123 --- Agriculture
--   109 --- Women and children support
-
-Users should confirm hotline availability and the appropriate service
-before relying on a number.
-
-### 11. Bangla & English Interface
-
-The app provides a bilingual interface to make the platform more
-accessible to Bangla-speaking citizens while also supporting English.
-
-------------------------------------------------------------------------
-
-## 🛠 Technology Stack
-
-  Area                      Technology
-  ------------------------- --------------------------
-  Mobile application        Flutter
-  Programming language      Dart
-  Authentication            Firebase Authentication
-  Cloud database            Cloud Firestore
-  Database access control   Firestore Security Rules
-  Target platform           Android
-
-------------------------------------------------------------------------
-
-## ⚙️ Setup & Installation
+## 🚀 Getting Started
 
 ### Prerequisites
 
--   Flutter 3.27 or newer
--   Android Studio
--   Android SDK
--   A Firebase project
+- Flutter 3.27 or newer
+- Android Studio and Android SDK
+- A Firebase project
 
 ### 1. Clone the repository
 
-``` bash
+```bash
 git clone https://github.com/TanimBD/syndicateless_bd.git
 cd syndicateless_bd
 ```
@@ -255,152 +204,112 @@ cd syndicateless_bd
 
 In the Firebase Console:
 
-1.  Create or select a Firebase project.
+1. Create or select a Firebase project.
+2. Register an Android app with package name:
 
-2.  Register an Android app using the package name:
+   `com.tanimbd.syndicatelessbd`
 
-    `com.tanimbd.syndicatelessbd`
+3. Download `google-services.json` and place it at:
 
-3.  Download `google-services.json` and place it in:
+   `android/app/google-services.json`
 
-    `android/app/google-services.json`
-
-4.  Enable **Anonymous** sign-in under **Authentication → Sign-in
-    method**, as required by the app's database-access implementation.
-
-5.  Create a Cloud Firestore database.
-
-6.  Review and publish the project's `firestore.rules`.
-
-> Keep Firebase configuration and credentials appropriate to the
-> repository's security model. Never commit service-account private
-> keys, signing keys, passwords, or other secrets.
+4. Under **Authentication → Sign-in method**, enable **Anonymous** sign-in if required by the app's current database-access implementation.
+5. Create a Cloud Firestore database.
+6. Review and publish the repository's `firestore.rules`.
 
 ### 3. Install dependencies
 
-``` bash
+```bash
 flutter pub get
 ```
 
-### 4. Run the application
+### 4. Run the app
 
-``` bash
+```bash
 flutter run
 ```
 
-------------------------------------------------------------------------
+---
 
-## 🔐 Administrator Setup
+## 🛡️ Administrator Setup
 
-The current setup guide uses a device-ID-based administrator allowlist:
+The current project setup uses a device-ID-based administrator allowlist:
 
-1.  Open the app and navigate to **More → Device ID**.
+1. Open the app and navigate to **More → Device ID**.
+2. Copy the device ID displayed by the app.
+3. In Cloud Firestore, create a document at:
 
-2.  Copy the device ID shown by the app.
+   `admins/<device-id>`
 
-3.  In Cloud Firestore, create a document under:
+4. Add a field such as:
 
-    `admins/<device-id>`
+   `name: "Admin"`
 
-4.  Add an appropriate field, for example:
+5. Restart the app.
+6. The **More → Authority dashboard** entry should then be available to the authorized device.
 
-    `name: "Admin"`
+In **Authority Dashboard → Settings**, use **Load default reference data** to populate initial reference values. Keep reference prices and fare rates updated from reliable sources.
 
-5.  Restart the app.
+---
 
-6.  The **More → Authority dashboard** entry should become available to
-    the authorized device.
+## 🔐 Security & Privacy
 
-In **Authority Dashboard → Settings**, use **Load default reference
-data** to populate initial reference values. Reference prices and fares
-must be maintained using reliable, current sources.
+The project documentation describes these safeguards:
 
-> Do not publish real users' device IDs, phone numbers, NID information,
-> or private case details in screenshots, documentation, or public issue
-> reports.
+- Passwords are salted and hashed before storage.
+- NID numbers are not displayed publicly.
+- Firestore rules are intended to prevent citizens from changing roles, editing other users' data, or changing case statuses.
+- Reports can be submitted with the reporter's identity kept private.
 
-------------------------------------------------------------------------
-
-## 🔒 Security & Privacy Notes
-
-The project documentation describes the following safeguards:
-
--   Passwords are salted and hashed before storage.
--   NID numbers are not displayed publicly.
--   Firestore rules are intended to prevent citizens from changing
-    roles, editing other users' data, or changing case statuses.
--   Anonymous reporting is supported as an app feature.
-
-### Production hardening
+### Production hardening considerations
 
 Before a public production launch, further review is recommended:
 
--   Move sensitive authentication and verification logic to trusted
-    server-side code, such as Cloud Functions.
--   Consider Firebase Phone Authentication/OTP for phone-number
-    verification.
--   Integrate a lawful, authorized identity-verification process if NID
-    verification is required.
--   Review Firestore rules with automated tests and a least-privilege
-    approach.
--   Add abuse prevention, rate limiting, moderation, audit logs, and
-    secure evidence-file access.
--   Establish clear retention, consent, privacy, and complaint-handling
-    policies.
+- Move sensitive authentication and verification logic to trusted server-side code, such as Cloud Functions.
+- Consider Firebase Phone Authentication / OTP for phone-number verification.
+- Use an authorized identity-verification process if NID verification is required.
+- Test Firestore rules and enforce least-privilege access.
+- Add abuse prevention, rate limiting, moderation, audit logs, and secure evidence-file access.
+- Establish clear consent, privacy, data-retention, and complaint-handling policies.
 
-The password hashing approach and client-side checks should not be
-treated as a substitute for secure server-side authentication and
-authorization.
+Never commit service-account private keys, signing keys, passwords, or other secrets. Do not publish phone numbers, NID details, device IDs, or private complaint evidence in screenshots or public documentation.
 
-------------------------------------------------------------------------
+---
 
-## 🏗 Release Build
+## 📦 Release Build
 
-For an Android App Bundle:
+Build an Android App Bundle with:
 
-``` bash
+```bash
 flutter build appbundle --release
 ```
 
-Configure Android signing securely before creating a production release.
-Keep the upload keystore and `key.properties` outside version control.
+Configure Android signing securely before creating a production release. Keep the upload keystore and `key.properties` out of version control.
 
-------------------------------------------------------------------------
+---
 
-## 🗺 Roadmap
+## 🔭 Planned Improvements
 
-Potential next steps include:
+- Add clearly labeled sample products and reference prices for demonstrations.
+- Capture populated Fair-Price Board and Direct Market screenshots.
+- Add an Authority Dashboard screenshot and short walkthrough video.
+- Expand automated tests for reporting, case transitions, and Firestore access rules.
+- Improve moderation, anti-spam, and production security safeguards.
+- Validate hotline and reference-price information with authoritative sources.
 
--   Populate the demo with clearly labeled sample products and reference
-    prices.
--   Add more screenshots, a short walkthrough video, and a live demo
-    where appropriate.
--   Expand automated tests for reporting, case status transitions, and
-    Firestore access rules.
--   Improve moderation and anti-spam safeguards.
--   Complete production security and privacy reviews.
--   Validate hotline and reference-price data with authoritative
-    sources.
-
-------------------------------------------------------------------------
-
-## 🤝 Contributing
-
-Suggestions, bug reports, and contributions are welcome. Please avoid
-including personal information, NID numbers, phone numbers, private case
-evidence, or credentials in public issues.
-
-------------------------------------------------------------------------
+---
 
 ## 👨‍💻 Developer
 
-**MD Tanim Hossen**\
+**MD Tanim Hossen**  
 GitHub: [@TanimBD](https://github.com/TanimBD)
 
-**Repository:**
-[github.com/TanimBD/syndicateless_bd](https://github.com/TanimBD/syndicateless_bd)
+**Repository:** [github.com/TanimBD/syndicateless_bd](https://github.com/TanimBD/syndicateless_bd)
 
-------------------------------------------------------------------------
+---
 
-*Built as a technology-driven project exploring fair markets, citizen
-participation, and digital accountability in Bangladesh.*
+<div align="center">
+
+**Syndicate-Free Bangladesh** · Built in Bangladesh 🇧🇩
+
+</div>
